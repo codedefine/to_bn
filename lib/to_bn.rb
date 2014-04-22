@@ -4,78 +4,79 @@ require "to_bn/version"
 
 class String
   def to_bn(params = {:parse_date => false})
-    unless params[:parse_date] == true
-      return gsub(/[1234567890]/, '1'=>'১', '2'=>'২', '3'=>'৩', '4'=>'৪', '5'=>'৫', '6'=>'৬', '7'=>'৭', '8'=>'৮', '9'=>'৯', '0'=>'০')
-    else
-      date = to_bn
-      date.gsub!('January', 'জানুয়ারী')
-      date.gsub!('February', 'ফেব্রুয়ারী')
-      date.gsub!('March', 'মার্চ')
-      date.gsub!('April', 'এপ্রিল')
-      date.gsub!('May', 'মে')
-      date.gsub!('June', 'জুন')
-      date.gsub!('July', 'জুলাই')
-      date.gsub!('August', 'অগাষ্ট')
-      date.gsub!('September', 'সেপ্টেম্বর')
-      date.gsub!('October', 'অক্টোবর')
-      date.gsub!('November', 'নভেম্বর')
-      date.gsub!('December', 'ডিসেম্বর')
+    bn = gsub(/[1234567890]/, '1'=>'১', '2'=>'২', '3'=>'৩', '4'=>'৪', '5'=>'৫', '6'=>'৬', '7'=>'৭', '8'=>'৮', '9'=>'৯', '0'=>'০')
 
-      date.gsub!('Jan', 'জানুয়ারী')
-      date.gsub!('Feb', 'ফেব্রুয়ারী')
-      date.gsub!('Mar', 'মার্চ')
-      date.gsub!('Apr', 'এপ্রিল')
-      date.gsub!('May', 'মে')
-      date.gsub!('Jun', 'জুন')
-      date.gsub!('Jul', 'জুলাই')
-      date.gsub!('Aug', 'অগাষ্ট')
-      date.gsub!('Sep', 'সেপ্টেম্বর')
-      date.gsub!('Oct', 'অক্টোবর')
-      date.gsub!('Nov', 'নভেম্বর')
-      date.gsub!('Dec', 'ডিসেম্বর')
+    if params[:parse_date] == true
+      bn.gsub!('January', 'জানুয়ারী')
+      bn.gsub!('February', 'ফেব্রুয়ারী')
+      bn.gsub!('March', 'মার্চ')
+      bn.gsub!('April', 'এপ্রিল')
+      bn.gsub!('May', 'মে')
+      bn.gsub!('June', 'জুন')
+      bn.gsub!('July', 'জুলাই')
+      bn.gsub!('August', 'অগাষ্ট')
+      bn.gsub!('September', 'সেপ্টেম্বর')
+      bn.gsub!('October', 'অক্টোবর')
+      bn.gsub!('November', 'নভেম্বর')
+      bn.gsub!('December', 'ডিসেম্বর')
 
-      date.gsub!('Saturday', 'শনিবার')
-      date.gsub!('Sunday', 'রবিবার')
-      date.gsub!('Monday', 'সোমবার')
-      date.gsub!('Tuesday', 'মঙ্গলবার')
-      date.gsub!('Wednesday', 'বুধবার')
-      date.gsub!('Thursday', 'বৃহস্পতিবার')
-      date.gsub!('Friday', 'শুক্রবার')
+      bn.gsub!('Jan', 'জানুয়ারী')
+      bn.gsub!('Feb', 'ফেব্রুয়ারী')
+      bn.gsub!('Mar', 'মার্চ')
+      bn.gsub!('Apr', 'এপ্রিল')
+      bn.gsub!('May', 'মে')
+      bn.gsub!('Jun', 'জুন')
+      bn.gsub!('Jul', 'জুলাই')
+      bn.gsub!('Aug', 'অগাষ্ট')
+      bn.gsub!('Sep', 'সেপ্টেম্বর')
+      bn.gsub!('Oct', 'অক্টোবর')
+      bn.gsub!('Nov', 'নভেম্বর')
+      bn.gsub!('Dec', 'ডিসেম্বর')
 
-      date.gsub!('Sat', 'শনি')
-      date.gsub!('Sun', 'রবি')
-      date.gsub!('Mon', 'সোম')
-      date.gsub!('Tues', 'মঙ্গল')
-      date.gsub!('Tue', 'মঙ্গল')
-      date.gsub!('Wed', 'বুধ')
-      date.gsub!('Thurs', 'বৃহস্পতি')
-      date.gsub!('Thu', 'বৃহস্পতি')
-      date.gsub!('Fri', 'শুক্র')
+      bn.gsub!('Saturday', 'শনিবার')
+      bn.gsub!('Sunday', 'রবিবার')
+      bn.gsub!('Monday', 'সোমবার')
+      bn.gsub!('Tuesday', 'মঙ্গলবার')
+      bn.gsub!('Wednesday', 'বুধবার')
+      bn.gsub!('Thursday', 'বৃহস্পতিবার')
+      bn.gsub!('Friday', 'শুক্রবার')
 
-      date.gsub!('Boishakh', 'বৈশাখ')
-      date.gsub!('Joishtho', 'জ্যৈষ্ঠ')
-      date.gsub!('Ashar', 'আষাঢ়')
-      date.gsub!('Srabon', 'শ্রাবণ')
-      date.gsub!('Bhadro', 'ভাদ্র')
-      date.gsub!('Ashin', 'আশ্বিন')
-      date.gsub!('Kartrik','কার্তিক')
-      date.gsub!('Agrohayon','অগ্রহায়ণ')
-      date.gsub!('Poush', 'পৌষ')
-      date.gsub!('Magh', 'মাঘ')
-      date.gsub!('Falgun', 'ফাল্গুন ')
-      date.gsub('Chaitro', 'চৈত্র')
+      bn.gsub!('Sat', 'শনি')
+      bn.gsub!('Sun', 'রবি')
+      bn.gsub!('Mon', 'সোম')
+      bn.gsub!('Tues', 'মঙ্গল')
+      bn.gsub!('Tue', 'মঙ্গল')
+      bn.gsub!('Wed', 'বুধ')
+      bn.gsub!('Thurs', 'বৃহস্পতি')
+      bn.gsub!('Thu', 'বৃহস্পতি')
+      bn.gsub!('Fri', 'শুক্র')
+
+      bn.gsub!('Boishakh', 'বৈশাখ')
+      bn.gsub!('Joishtho', 'জ্যৈষ্ঠ')
+      bn.gsub!('Ashar', 'আষাঢ়')
+      bn.gsub!('Srabon', 'শ্রাবণ')
+      bn.gsub!('Bhadro', 'ভাদ্র')
+      bn.gsub!('Ashin', 'আশ্বিন')
+      bn.gsub!('Kartrik','কার্তিক')
+      bn.gsub!('Agrohayon','অগ্রহায়ণ')
+      bn.gsub!('Poush', 'পৌষ')
+      bn.gsub!('Magh', 'মাঘ')
+      bn.gsub!('Falgun', 'ফাল্গুন ')
+      bn.gsub!('Chaitro', 'চৈত্র')
     end
+
+    return bn
   end
 end
 
 class Integer < Numeric
-  def to_bn
+  def to_bn(params = {:in_words => false})
     self.to_s.to_bn
   end
 end
 
 class Float < Numeric
-  def to_bn
+  def to_bn(params = {:in_words => false})
     self.to_s.to_bn
   end
 end
