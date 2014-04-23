@@ -31,7 +31,11 @@ Converting String (Containing Date)
     "Fri".to_bn :parse_date => true                 # => "শুক্র"
     "Boishakh 1432".to_bn :parse_date => true       # => "বৈশাখ ১৪৩২"
 
+Converting Number to Words:
 
+    "1 23".to_bn :in_words => true          # => "এক দুইতিন"
+    567123.to_bn :in_words => true          # => "পাঁচ লক্ষ সাতষট্টি হাজার এক শত তেইশ"
+    567123.05.to_bn :in_words => true       # => "পাঁচ লক্ষ সাতষট্টি হাজার এক শত তেইশ দশমিক শূন্য পাঁচ"
 ## Contributing
 
 1. Fork it
